@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Messager</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-container">
+                <form id="contactForm" class="contact-form"
+                    action="https://formspree.io/f/mlgwygyj"
+                    method="POST"
+                    enctype="multipart/form-data">
+                    <h1 class="form-title">Send a Message or Files</h1>
+                    <p class="form-subtitle">We'd love to hear from you. Send us a message!</p>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileUpload">Choose a file to upload</label>
+                        <input type="file" id="fileUpload" name="fileUpload">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required></textarea>
+                        <span class="char-count"><span id="charCount">0</span>/500</span>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    ✓ Message sent successfully!
+                </div>
+            </div>
+        </div>
+        <script src="script.js" async defer></script>
+        <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+        <script>
+          /* paste this line in verbatim */
+          window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+          /* customize formbutton below*/     
+          formbutton("create", {
+            action: "https://formspree.io/f/mlgwygyj",
+            title: "How can we help?",
+            fields: [
+              { 
+                type: "email", 
+                label: "Email:", 
+                name: "email",
+                required: true,
+                placeholder: "your@email.com"
+              },
+              {
+                type: "textarea",
+                label: "Message:",
+                name: "message",
+                placeholder: "What's on your mind?",
+              },
+              { type: "submit" }      
+            ],
+            styles: {
+              title: {
+                backgroundColor: "gray"
+              },
+              button: {
+                backgroundColor: "gray"
+              }
+            }
+          });
+        </script>
+    </body>
+</html>
